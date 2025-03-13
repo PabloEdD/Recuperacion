@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "recuperacion",
+    'name': "recuperacion odoo",
 
     'summary': "Short (1 phrase/line) summary of the module's purpose",
 
@@ -22,7 +22,7 @@ Long description of module's purpose
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
     ],
