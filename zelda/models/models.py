@@ -6,9 +6,10 @@ class jugador(models.Model):
     _name = 'zelda.jugador'
     _description = 'jugador'
 
-    health = fields.Integer()
+    name = fields.Char(string="Name")
     rupies = fields.Integer()
-    #objects = fields.One2many('zelda.objetos')
+    health = fields.Integer()
+    objects = fields.One2many('zelda.objetos', "player_id")
 
 class personajes(models.Model):
     _name = 'zelda.personajes'
@@ -29,7 +30,8 @@ class objetos(models.Model):
 
     name = fields.Char(string="Name")
     quantity = fields.Integer()
-    #player_id = fields.Many2one('zelda.jugador', string="Player")
+    #type = fields.Selection(bombas, flehcas)
+    player_id = fields.Many2one('zelda.jugador', string="Name")
 
 class pueblos(models.Model):
     _name = 'zelda.pueblos'

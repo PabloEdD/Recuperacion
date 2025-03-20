@@ -47,22 +47,22 @@
     <menuitem name="Menu" id="zelda.menu_1" parent="zelda.menu_root"/>
 
     <!-- actions -->
-    <menuitem name="List_jugador" id="menu_jugador_list" parent="zelda.menu_1"
+    <menuitem name="Jugador" id="menu_jugador_list" parent="zelda.menu_1"
               action="zelda.action_jugador"/>
 
-    <menuitem name="List_personajes" id="menu_personajes_list" parent="zelda.menu_1"
+    <menuitem name="Personajes" id="menu_personajes_list" parent="zelda.menu_1"
               action="zelda.action_personajes"/>
 
-    <menuitem name="List_enemigos" id="menu_enemigos_list" parent="zelda.menu_1"
+    <menuitem name="Enemigos" id="menu_enemigos_list" parent="zelda.menu_1"
               action="zelda.action_enemigos"/>
 
-    <menuitem name="List_objetos" id="menu_objetos_list" parent="zelda.menu_1"
+    <menuitem name="Objetos" id="menu_objetos_list" parent="zelda.menu_1"
               action="zelda.action_objetos"/>
 
-    <menuitem name="List_pueblos" id="menu_pueblos_list" parent="zelda.menu_1"
+    <menuitem name="Pueblos" id="menu_pueblos_list" parent="zelda.menu_1"
               action="zelda.action_pueblos"/>
 
-    <menuitem name="List_mazmorras" id="menu_mazmorras_list" parent="zelda.menu_1"
+    <menuitem name="Mazmorras" id="menu_mazmorras_list" parent="zelda.menu_1"
               action="zelda.action_mazmorras"/>
 
 
