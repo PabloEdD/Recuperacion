@@ -1,60 +1,70 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="zelda.list">
-      <field name="name">Zelda list</field>
-      <field name="model">zelda.zelda</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
--->
 
     <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="zelda.action_window">
-      <field name="name">Zelda window</field>
-      <field name="res_model">zelda.zelda</field>
+    <record model="ir.actions.act_window" id="zelda.action_jugador" >
+      <field name="name">Jugador</field>
+      <field name="res_model">zelda.jugador</field>
       <field name="view_mode">tree,form</field>
     </record>
--->
 
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="zelda.action_server">
-      <field name="name">Zelda server</field>
-      <field name="model_id" ref="model_zelda_zelda"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
+    <record model="ir.actions.act_window" id="zelda.action_personajes" >
+      <field name="name">Personajes</field>
+      <field name="res_model">zelda.personajes</field>
+      <field name="view_mode">tree,form</field>
     </record>
--->
+
+    <record model="ir.actions.act_window" id="zelda.action_enemigos" >
+      <field name="name">Enemigos</field>
+      <field name="res_model">zelda.enemigos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="zelda.action_objetos" >
+      <field name="name">Objetos</field>
+      <field name="res_model">zelda.objetos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="zelda.action_pueblos" >
+      <field name="name">Pueblos</field>
+      <field name="res_model">zelda.pueblos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="zelda.action_mazmorras" >
+      <field name="name">Mazmorras</field>
+      <field name="res_model">zelda.mazmorras</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
 
     <!-- Top menu item -->
-<!--
-    <menuitem name="Zelda" id="zelda.menu_root"/>
--->
+    <menuitem name="zelda" id="zelda.menu_root"/>
+
     <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="zelda.menu_1" parent="zelda.menu_root"/>
-    <menuitem name="Menu 2" id="zelda.menu_2" parent="zelda.menu_root"/>
--->
+    <menuitem name="Menu" id="zelda.menu_1" parent="zelda.menu_root"/>
+
     <!-- actions -->
-<!--
-    <menuitem name="List" id="zelda.menu_1_list" parent="zelda.menu_1"
-              action="zelda.action_window"/>
-    <menuitem name="Server to list" id="zelda" parent="zelda.menu_2"
-              action="zelda.action_server"/>
--->
+    <menuitem name="List_jugador" id="menu_jugador_list" parent="zelda.menu_1"
+              action="zelda.action_jugador"/>
+
+    <menuitem name="List_personajes" id="menu_personajes_list" parent="zelda.menu_1"
+              action="zelda.action_personajes"/>
+
+    <menuitem name="List_enemigos" id="menu_enemigos_list" parent="zelda.menu_1"
+              action="zelda.action_enemigos"/>
+
+    <menuitem name="List_objetos" id="menu_objetos_list" parent="zelda.menu_1"
+              action="zelda.action_objetos"/>
+
+    <menuitem name="List_pueblos" id="menu_pueblos_list" parent="zelda.menu_1"
+              action="zelda.action_pueblos"/>
+
+    <menuitem name="List_mazmorras" id="menu_mazmorras_list" parent="zelda.menu_1"
+              action="zelda.action_mazmorras"/>
+
+
   </data>
 </odoo>
