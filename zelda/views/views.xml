@@ -38,6 +38,11 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <record model="ir.actions.act_window" id="zelda.action_inventario" >
+      <field name="name">Inventario</field>
+      <field name="res_model">zelda.inventario</field>
+      <field name="view_mode">tree,form</field>
+    </record>
 
 
     <!-- Top menu item -->
@@ -64,6 +69,10 @@
 
     <menuitem name="Mazmorras" id="menu_mazmorras_list" parent="zelda.menu_1"
               action="zelda.action_mazmorras"/>
+
+    <menuitem name="Inventario" id="menu_inventario_list" parent="zelda.menu_1"
+              action="zelda.action_inventario"/>
+
 
 
   </data>
