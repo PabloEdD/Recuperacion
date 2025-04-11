@@ -1,5 +1,232 @@
 <odoo>
   <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="zelda.jugador_list">
+      <field name="name">jugador list</field>
+      <field name="model">zelda.jugador</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="health"/>
+          <field name="rupies"/>
+          <field name="progress" widget="progressbar"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="zelda.jugador_form">
+      <field name="name">jugador form</field>
+      <field name="model">zelda.jugador</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group string="Datos Jugador">
+              <field name="name"/>
+              <field name="health"/>
+              <field name="rupies"/>
+              <field name="progress" widget="progressbar"/>
+            </group>
+            <notebook>
+              <page string="Inventario">
+                <field name="inventory"/>
+              </page>
+              <page string="Objetos">
+                <field name="objects"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="zelda.objetos_list">
+      <field name="name">objetos list</field>
+      <field name="model">zelda.objetos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="type"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="zelda.objetos_form">
+      <field name="name">objetos form</field>
+      <field name="model">zelda.objetos</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group string="Datos Objeto">
+              <field name="name"/>
+              <field name="type" widget="radio"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="zelda.personajes_list">
+      <field name="name">personajes list</field>
+      <field name="model">zelda.personajes</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="town"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="zelda.personajes_form">
+      <field name="name">personajes form</field>
+      <field name="model">zelda.personajes</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group string="Datos Personajes">
+              <field name="name"/>
+            </group>
+
+            <notebook>
+              <page string="Pueblos">
+                <field name="town"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="zelda.enemigos_list">
+      <field name="name">enemigos list</field>
+      <field name="model">zelda.enemigos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="strength"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="zelda.enemigos_form">
+      <field name="name">enemigos form</field>
+      <field name="model">zelda.enemigos</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group string="Datos Enemigos">
+              <field name="name"/>
+              <field name="strength"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="zelda.inventario_list">
+      <field name="name">inventario list</field>
+      <field name="model">zelda.inventario</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="player_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="zelda.inventario_form">
+      <field name="name">inventario form</field>
+      <field name="model">zelda.inventario</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group string="Datos Inventario">
+              <field name="name"/>
+              <field name="player_id"/>
+              <field name="objects"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="zelda.flechas_list">
+      <field name="name">flechas list</field>
+      <field name="model">zelda.flechas</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="type"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="zelda.flechas_form">
+      <field name="name">flechas form</field>
+      <field name="model">zelda.flechas</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group string="Datos Flechas">
+              <field name="name"/>
+              <field name="type"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="zelda.pueblos_list">
+      <field name="name">pueblos list</field>
+      <field name="model">zelda.pueblos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="zelda.pueblos_form">
+      <field name="name">pueblos form</field>
+      <field name="model">zelda.pueblos</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group string="Datos Pueblos">
+              <field name="name"/>
+            </group>
+            <notebook>
+              <page string="Personajes">
+                <field name="characters"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="zelda.mazmorras_list">
+      <field name="name">mazmorras list</field>
+      <field name="model">zelda.mazmorras</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="zelda.mazmorras_form">
+      <field name="name">mazmorras form</field>
+      <field name="model">zelda.mazmorras</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group string="Datos Mazmorras">
+              <field name="name"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
 
     <!-- actions opening views on models -->
     <record model="ir.actions.act_window" id="zelda.action_jugador" >

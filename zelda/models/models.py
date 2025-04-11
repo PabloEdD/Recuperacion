@@ -9,6 +9,7 @@ class jugador(models.Model):
     name = fields.Char(string="Name")
     rupies = fields.Integer()
     health = fields.Integer()
+    progress = fields.Integer()
     inventory = fields.One2many('zelda.inventario', "player_id")
     objects = fields.Many2many('zelda.objetos', compute="_get_objects")
 

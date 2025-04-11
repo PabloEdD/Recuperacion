@@ -1,30 +1,20 @@
 <odoo>
     <data>
-<!--
-          <record id="object0" model="zelda.zelda">
-            <field name="name">Object 0</field>
-            <field name="value">0</field>
+          <record id="zelda.jugador_1" model="zelda.jugador">
+            <field name="name">Link_Demo</field>
+            <field name="rupies">0</field>
+            <field name="health">3</field>
           </record>
 
-          <record id="object1" model="zelda.zelda">
-            <field name="name">Object 1</field>
-            <field name="value">10</field>
+          <record id="zelda.objetos_1" model="zelda.objetos">
+            <field name="name">Flecha_Demo</field>
+            <field name="quantity">20</field>
           </record>
 
-          <record id="object2" model="zelda.zelda">
-            <field name="name">Object 2</field>
-            <field name="value">20</field>
+          <record id="zelda.inventario_1" model="zelda.inventario">
+            <field name="player_id" ref="zelda.jugador_1"></field>
+            <field name="objects" ref="zelda.objetos_1"></field>
           </record>
 
-          <record id="object3" model="zelda.zelda">
-            <field name="name">Object 3</field>
-            <field name="value">30</field>
-          </record>
-
-          <record id="object4" model="zelda.zelda">
-            <field name="name">Object 4</field>
-            <field name="value">40</field>
-          </record>
--->
     </data>
 </odoo>

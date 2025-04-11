@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76751188-08cc-4bf4-b7f2-ac49c2a2fad9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/zelda/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/zelda/__manifest__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zelda/models/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/zelda/models/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zelda/views/views.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zelda/views/views.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zelda/demo/demo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zelda/demo/demo.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,13 +35,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/run/user/1001/gvfs/sftp:host=192.168.8.211/var/lib/odoo/modules"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/run/user/1001/gvfs/sftp:host=192.168.8.211/var/lib/odoo/modules&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
