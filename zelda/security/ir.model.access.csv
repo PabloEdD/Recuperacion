@@ -1,5 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_zelda_jugador,zelda.jugador,model_zelda_jugador,base.group_user,1,1,1,1
 access_zelda_personajes,zelda.personajes,model_zelda_personajes,base.group_user,1,1,1,1
 access_zelda_enemigos,zelda.enemigos,model_zelda_enemigos,base.group_user,1,1,1,1
 access_zelda_objetos,zelda.objetos,model_zelda_objetos,base.group_user,1,1,1,1

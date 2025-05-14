@@ -3,7 +3,7 @@
 from odoo import models, fields, api
 
 class jugador(models.Model):
-    _name = 'zelda.jugador'
+    _inherit = 'res.partner'
     _description = 'jugador'
 
     name = fields.Char(string="Name")
@@ -12,6 +12,7 @@ class jugador(models.Model):
     progress = fields.Integer()
     inventory = fields.One2many('zelda.inventario', "player_id")
     objects = fields.Many2many('zelda.objetos', compute="_get_objects")
+    is_player = fields.Boolean()
 
     def _get_objects(self):
         for a in self:
@@ -36,18 +37,17 @@ class inventario(models.Model):
     _description = 'Inventario'
 
     name = fields.Char(string="Name")
-    player_id = fields.Many2one('zelda.jugador')
+    player_id = fields.Many2one('res.partner')
     objects = fields.Many2one('zelda.objetos')
-
 
 class objetos(models.Model):
     _name = 'zelda.objetos'
     _description = 'Objetos'
 
     name = fields.Char(string="Name")
+    player_id = fields.Many2one('res.partner')
     type = fields.Selection([('1','Bombas'),('2','Flechas')], )
     quantity = fields.Integer()
-
 
 class flechas(models.Model):
     _name = 'zelda.flechas'
@@ -55,7 +55,7 @@ class flechas(models.Model):
 
     name = fields.Char(string="Name")
     type = fields.Selection([('1', 'Normal'), ('2', 'Fire'), ('3', 'Ice'), ('4', 'Electricity'), ('5', 'Ligth')], )
-    quantity = fields.Integer
+    player_id = fields.Many2one('res.partner')
 
 class pueblos(models.Model):
     _name = 'zelda.pueblos'
