@@ -1,9 +1,23 @@
 <odoo>
   <data>
+    <record model="ir.ui.view" id="zelda.jugador_partner_search">
+      <field name="name">jugador search</field>
+      <field name="model">res.partner</field>
+      <field name="arch" type="xml">
+        <search>
+          <filter name="player_partner" string="Is Player" domain="[('is_player','=',True)]" />
+          <field name="name"/>
+          <field name="health"/>
+          <field name="rupies"/>
+          <field name="progress" widget="progressbar"/>
+        </search>
+      </field>
+    </record>
+
     <!-- explicit list view definition -->
-    <record model="ir.ui.view" id="zelda.jugador_list">
+    <record model="ir.ui.view" id="zelda.jugador_partner_list">
       <field name="name">jugador list</field>
-      <field name="model">zelda.jugador</field>
+      <field name="model">res.partner</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
@@ -14,28 +28,35 @@
       </field>
     </record>
 
-    <record model="ir.ui.view" id="zelda.jugador_form">
+
+    <record model="ir.ui.view" id="zelda.jugador_partner_form">
       <field name="name">jugador form</field>
-      <field name="model">zelda.jugador</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"></field>
       <field name="arch" type="xml">
-        <form>
-          <sheet>
-            <group string="Datos Jugador">
-              <field name="name"/>
-              <field name="health"/>
-              <field name="rupies"/>
-              <field name="progress" widget="progressbar"/>
-            </group>
-            <notebook>
-              <page string="Inventario">
-                <field name="inventory"/>
-              </page>
-              <page string="Objetos">
-                <field name="objects"/>
-              </page>
-            </notebook>
-          </sheet>
-        </form>
+        <notebook position="inside">
+          <page string="Zelda">
+            <form>
+              <sheet>
+                <group string="Datos Jugador">
+                  <field name="name"/>
+                  <field name="health"/>
+                  <field name="rupies"/>
+                  <field name="progress" widget="progressbar"/>
+                  <field name="is_player"/>
+                </group>
+                <notebook>
+                  <page string="Objetos">
+                    <field name="objects"/>
+                  </page>
+                  <page string="Flechas">
+                    <field name="arrows"/>
+                  </page>
+                </notebook>
+              </sheet>
+            </form>
+          </page>
+        </notebook>
       </field>
     </record>
 
@@ -46,6 +67,7 @@
         <tree>
           <field name="name"/>
           <field name="type"/>
+          <field name="quantity"/>
         </tree>
       </field>
     </record>
@@ -59,6 +81,7 @@
             <group string="Datos Objeto">
               <field name="name"/>
               <field name="type" widget="radio"/>
+              <field name="quantity"/>
             </group>
           </sheet>
         </form>
@@ -128,7 +151,7 @@
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
-          <field name="player_id"/>
+          <!-- <field name="player_id"/> -->
         </tree>
       </field>
     </record>
@@ -141,7 +164,7 @@
           <sheet>
             <group string="Datos Inventario">
               <field name="name"/>
-              <field name="player_id"/>
+              <!-- <field name="player_id"/> -->
               <field name="objects"/>
             </group>
           </sheet>
@@ -228,11 +251,17 @@
       </field>
     </record>
 
+
+
     <!-- actions opening views on models -->
     <record model="ir.actions.act_window" id="zelda.action_jugador" >
       <field name="name">Jugador</field>
-      <field name="res_model">zelda.jugador</field>
+      <field name="res_model">res.partner</field>
       <field name="view_mode">tree,form</field>
+      <field name="context">{'default_is_player': True, 'search_default_player_partner': 1}</field>
+      <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('zelda.jugador_partner_list')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('zelda.jugador_partner_form')}),]" />
     </record>
 
     <record model="ir.actions.act_window" id="zelda.action_personajes" >
@@ -299,8 +328,6 @@
 
     <menuitem name="Inventario" id="menu_inventario_list" parent="zelda.menu_1"
               action="zelda.action_inventario"/>
-
-
 
   </data>
 </odoo>
