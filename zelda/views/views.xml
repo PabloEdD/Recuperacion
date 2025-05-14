@@ -49,9 +49,6 @@
                   <page string="Objetos">
                     <field name="objects"/>
                   </page>
-                  <page string="Flechas">
-                    <field name="arrows"/>
-                  </page>
                 </notebook>
               </sheet>
             </form>
@@ -66,8 +63,7 @@
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
-          <field name="type"/>
-          <field name="quantity"/>
+          <field name="player_id"/>
         </tree>
       </field>
     </record>
@@ -80,8 +76,7 @@
           <sheet>
             <group string="Datos Objeto">
               <field name="name"/>
-              <field name="type" widget="radio"/>
-              <field name="quantity"/>
+              <field name="player_id"/>
             </group>
           </sheet>
         </form>
@@ -139,59 +134,6 @@
             <group string="Datos Enemigos">
               <field name="name"/>
               <field name="strength"/>
-            </group>
-          </sheet>
-        </form>
-      </field>
-    </record>
-
-    <record model="ir.ui.view" id="zelda.inventario_list">
-      <field name="name">inventario list</field>
-      <field name="model">zelda.inventario</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <!-- <field name="player_id"/> -->
-        </tree>
-      </field>
-    </record>
-
-    <record model="ir.ui.view" id="zelda.inventario_form">
-      <field name="name">inventario form</field>
-      <field name="model">zelda.inventario</field>
-      <field name="arch" type="xml">
-        <form>
-          <sheet>
-            <group string="Datos Inventario">
-              <field name="name"/>
-              <!-- <field name="player_id"/> -->
-              <field name="objects"/>
-            </group>
-          </sheet>
-        </form>
-      </field>
-    </record>
-
-    <record model="ir.ui.view" id="zelda.flechas_list">
-      <field name="name">flechas list</field>
-      <field name="model">zelda.flechas</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="type"/>
-        </tree>
-      </field>
-    </record>
-
-    <record model="ir.ui.view" id="zelda.flechas_form">
-      <field name="name">flechas form</field>
-      <field name="model">zelda.flechas</field>
-      <field name="arch" type="xml">
-        <form>
-          <sheet>
-            <group string="Datos Flechas">
-              <field name="name"/>
-              <field name="type"/>
             </group>
           </sheet>
         </form>
@@ -294,12 +236,6 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-    <record model="ir.actions.act_window" id="zelda.action_inventario" >
-      <field name="name">Inventario</field>
-      <field name="res_model">zelda.inventario</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-
 
     <!-- Top menu item -->
     <menuitem name="zelda" id="zelda.menu_root"/>
@@ -325,9 +261,6 @@
 
     <menuitem name="Mazmorras" id="menu_mazmorras_list" parent="zelda.menu_1"
               action="zelda.action_mazmorras"/>
-
-    <menuitem name="Inventario" id="menu_inventario_list" parent="zelda.menu_1"
-              action="zelda.action_inventario"/>
 
   </data>
 </odoo>

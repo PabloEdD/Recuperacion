@@ -11,10 +11,5 @@
             <field name="quantity">20</field>
           </record>
 
-          <record id="zelda.inventario_1" model="zelda.inventario">
-            <field name="player_id" ref="zelda.jugador_1"></field>
-            <field name="objects" ref="zelda.objetos_1"></field>
-          </record>
-
     </data>
 </odoo>
