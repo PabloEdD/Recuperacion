@@ -44,6 +44,7 @@
                   <field name="rupies"/>
                   <field name="progress" widget="progressbar"/>
                   <field name="is_player"/>
+                  <button name="create_object" string="Create Object" type="object" />
                 </group>
                 <notebook>
                   <page string="Inventario">

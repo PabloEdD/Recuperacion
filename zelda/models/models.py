@@ -2,6 +2,8 @@
 
 from odoo import models, fields, api
 
+import random
+
 class jugador(models.Model):
     _inherit = 'res.partner'
     _description = 'jugador'
@@ -17,6 +19,16 @@ class jugador(models.Model):
     def _get_objects(self):
         for a in self:
             a.objects = a.inventory.objects
+
+    def create_object(self):
+        for j in self:
+            item = self.env['zelda.objetos'].create({
+                "name": "Bombas",
+                "type": "1",
+                "quantity": random.randint(1, 99)
+            })
+            inventory = self.env['zelda.inventario'].search(["player_id", "=", self.id])
+            inventory.objects(item)
 
 class personajes(models.Model):
     _name = 'zelda.personajes'
