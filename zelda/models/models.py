@@ -27,8 +27,13 @@ class jugador(models.Model):
                 "type": "1",
                 "quantity": random.randint(1, 99)
             })
-            inventory = self.env['zelda.inventario'].search(["player_id", "=", self.id])
-            inventory.objects(item)
+
+            self.env['zelda.inventario'].create({
+                "name": f"Item de {j.name}",
+                "player_id": j.id,
+                "objects": item.id
+            })
+
 
 class personajes(models.Model):
     _name = 'zelda.personajes'
@@ -60,6 +65,30 @@ class objetos(models.Model):
     player_id = fields.Many2one('res.partner')
     type = fields.Selection([('1','Bombas'),('2','Flechas')], )
     quantity = fields.Integer()
+
+class objetos(models.TransientModel):
+    _name = 'zelda.objetos_wizard'
+    _description = 'Objetos wizard'
+
+    name = fields.Char(string="Name")
+    player_id = fields.Many2one('res.partner', string="Player", default= lambda o: o._context.get("active_id"))
+    type = fields.Selection([('1','Bombas'),('2','Flechas')], )
+    quantity = fields.Integer()
+
+    def create_object(self):
+        print(self)
+        for o in self:
+            item = self.env['zelda.objetos'].create({
+                "name": o.name,
+                "type": o.type,
+                "quantity": o.quantity
+            })
+
+            self.env['zelda.inventario'].create({
+                "name": f"{item.name} de {o.player_id.name}",
+                "player_id": o.player_id.id,
+                "objects": item.id
+            })
 
 class flechas(models.Model):
     _name = 'zelda.flechas'

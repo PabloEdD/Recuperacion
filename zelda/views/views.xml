@@ -44,7 +44,8 @@
                   <field name="rupies"/>
                   <field name="progress" widget="progressbar"/>
                   <field name="is_player"/>
-                  <button name="create_object" string="Create Object" type="object" />
+                  <button name="create_object" string="Generate Object" type="object"/>
+                  <button name="%(zelda.action_objetos_wizard)d" type="action" string="Create Object" class="oe_highlight" />
                 </group>
                 <notebook>
                   <page string="Inventario">
@@ -83,6 +84,35 @@
               <field name="name"/>
               <field name="type" widget="radio"/>
               <field name="quantity"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="zelda.action_objetos_wizard">
+      <field name="name">Objetos</field>
+      <field name="res_model">zelda.objetos_wizard</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+      <field name="binding_model_id" ref="model_zelda_objetos"/>
+    </record>
+
+    <record model="ir.ui.view" id="zelda.objetos_wizard_form">
+      <field name="name">objetos wizard form</field>
+      <field name="model">zelda.objetos_wizard</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group string="Datos Objeto">
+              <field name="name"/>
+              <field name="type" widget="radio"/>
+              <field name="quantity"/>
+              <field name="player_id"/>
+              <footer>
+                <button name="create_object" type="object" string="Create"/>
+                <button special="cancel" string="Cancel"/>
+              </footer>
             </group>
           </sheet>
         </form>
