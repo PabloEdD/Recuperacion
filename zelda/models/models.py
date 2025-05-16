@@ -66,7 +66,7 @@ class objetos(models.Model):
     type = fields.Selection([('1','Bombas'),('2','Flechas')], )
     quantity = fields.Integer()
 
-class objetos(models.TransientModel):
+class objetos_wizard(models.TransientModel):
     _name = 'zelda.objetos_wizard'
     _description = 'Objetos wizard'
 
@@ -74,6 +74,10 @@ class objetos(models.TransientModel):
     player_id = fields.Many2one('res.partner', string="Player", default= lambda o: o._context.get("active_id"))
     type = fields.Selection([('1','Bombas'),('2','Flechas')], )
     quantity = fields.Integer()
+    state = fields.Selection([
+        ('objeto', "Object Selection"),
+        ('inventario', "Inventory Selection"),
+    ], default='objeto')
 
     def create_object(self):
         print(self)
@@ -89,6 +93,26 @@ class objetos(models.TransientModel):
                 "player_id": o.player_id.id,
                 "objects": item.id
             })
+
+    def next(self):
+        self.state = 'inventario'
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': self._name,
+            'res_id': self.id,
+            'view_mode': 'form',
+            'target': 'new',
+        }
+
+    def previous(self):
+        self.state = 'objeto'
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': self._name,
+            'res_id': self.id,
+            'view_mode': 'form',
+            'target': 'new',
+        }
 
 class flechas(models.Model):
     _name = 'zelda.flechas'
