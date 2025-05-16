@@ -92,6 +92,7 @@ class objetos_wizard(models.TransientModel):
                 "name": f"{item.name} de {o.player_id.name}",
                 "player_id": o.player_id.id,
                 "objects": item.id
+                "hola"
             })
 
     def next(self):
