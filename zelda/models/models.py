@@ -38,7 +38,7 @@ class jugador(models.Model):
     def add_object(self):
         for j in self.search([('is_player', '=', True)]):
             for o in j.objects:
-                if o.quantity is not None:
+                if o.quantity is not None :
                     o.quantity = o.quantity + random.randint(1, 4)
 
 
