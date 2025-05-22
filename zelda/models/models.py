@@ -34,6 +34,13 @@ class jugador(models.Model):
                 "objects": item.id
             })
 
+    @api.model
+    def add_object(self):
+        for j in self.search([('is_player', '=', True)]):
+            for o in j.objects:
+                if o.quantity is not None:
+                    o.quantity = o.quantity + random.randint(1, 4)
+
 
 class personajes(models.Model):
     _name = 'zelda.personajes'
@@ -92,7 +99,7 @@ class objetos_wizard(models.TransientModel):
                 "name": f"{item.name} de {o.player_id.name}",
                 "player_id": o.player_id.id,
                 "objects": item.id
-                "hola"
+
             })
 
     def next(self):
